@@ -1,5 +1,6 @@
 package com.androidhans.lab6
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
@@ -7,9 +8,12 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.snackbar.Snackbar
+import kotlin.Result.Companion.success
 
 class MainActivity : AppCompatActivity() {
 
+    @SuppressLint("InflateParams")
+    //SuppressLint指的是壓制Lint，而Lint指的是Android開發中的一個檢查器，用來標記原始碼中，某些不安全、可疑的、不具結構性 ( 可能造成bug ) 的段落。而使用SuppressLint就是要抑制這個檢查錯誤訊息
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -104,10 +108,9 @@ class MainActivity : AppCompatActivity() {
 
     //建立 showToast 方法顯示 Toast 訊息,上述各類型共用下面
     private fun showToast(msg: String) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT)
-.show()
-
-    }
+               Toast.makeText(this, msg, Toast.LENGTH_SHORT)
+                .show()
+            }
 }
 
 
